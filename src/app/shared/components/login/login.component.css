@@ -1,10 +1,41 @@
-@import '../../../../styles.css';
-
-  .form_container{
-      background-color: var(--primaryDark);
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  }
+@import "../../../../styles.css";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100&family=Montserrat:wght@300;600&display=swap");
+* {
+  font-family: "Montserrat", sans-serif;
+}
+.form_container {
+  background-color: var(--primaryDark);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.field_wrapper input {
+  background: transparent;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 20px;
+  padding-left: 51px;
+}
+.field_wrapper input,
+.field_wrapper button {
+  height: 45px;
+  width: 300px;
+  text-transform: uppercase;
+}
+.field_wrapper button {
+  background: #fff;
+  color: var(--primaryDark);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: 4px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+}
