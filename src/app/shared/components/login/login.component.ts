@@ -12,5 +12,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  loginForm = this.fb.group({
+    firstName: ['',]
+  })
 }

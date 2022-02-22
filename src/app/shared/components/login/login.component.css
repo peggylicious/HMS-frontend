@@ -1,0 +1,10 @@
+@import '../../../../styles.css';
+
+  .form_container{
+      background-color: var(--primaryDark);
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }

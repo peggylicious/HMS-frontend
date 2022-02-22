@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --primaryDark: #1F58E7;
+    --primaryDefault: #336CFB;
+    --primaryHover: #558EFF;
+    --primaryLight: #A9C1FD;
+    --primaryLightest: #EBF0FF;
+    --white: #ffffff;
+  }
+
+  *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+  }
+  /* .form_container{
+
+    background-color: var(--primaryDark);
+} */
