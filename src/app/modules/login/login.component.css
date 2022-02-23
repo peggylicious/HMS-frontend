@@ -1,4 +1,4 @@
-@import "../../../../styles.css";
+@import "../../../styles.css";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100&family=Montserrat:wght@300;600&display=swap");
 * {
   font-family: "Montserrat", sans-serif;
