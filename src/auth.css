@@ -1,0 +1,71 @@
+@import "./styles.css";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100&family=Montserrat:wght@300;600&display=swap");
+* {
+  font-family: "Montserrat", sans-serif;
+}
+.hms_flex{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* margin-bottom: 71px; */
+}
+.logo.hms_flex{
+  margin-bottom: 71px;
+}
+.form_container {
+  background-color: var(--primaryDark);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* flex-wrap: wrap; */
+}
+.field_wrapper{
+  position: relative;
+  margin-bottom: 20px;
+}
+.field_wrapper input {
+  background: transparent;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 20px;
+  padding-left: 51px;
+  color: #fff;
+}
+.field_wrapper input::placeholder{
+  color: #fff;
+}
+.field_wrapper input:focus{
+  outline: none;
+}
+.field_wrapper input,
+.field_wrapper button {
+  height: 45px;
+  width: 300px;
+  text-transform: uppercase;
+}
+.btn_wrapper{
+  margin-top: 41px;
+}
+.auth_vg{
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translate(0%, -50%);
+}
+.field_wrapper button {
+  background: #fff;
+  color: var(--primaryDark);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: 4px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+}
