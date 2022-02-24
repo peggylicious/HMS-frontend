@@ -30,6 +30,8 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/ngx-spinner/animations/square-jelly-box.css", 
+              "node_modules/ngx-spinner/animations/ball-pulse.css", 
               "src/styles.css"
             ],
             "scripts": []
