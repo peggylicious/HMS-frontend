@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.spinner.show();
+    // this.spinner.show();
   }
   registerForm = this.fb.group({
     // firstname: [''],
