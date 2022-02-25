@@ -8,7 +8,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  login(data: any){
+  signup(data: any){
     console.log(data)
     return this.http.post('http://localhost:3000/user/signup', data)
   }

@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit {
     this.spinner.show();
     this.passwordErrorMsg = { hasPassword: false, message: '' };
     this.emailErrorMsg = { hasEmail: false, message: '' };
-    this.authService.login(signupPayload).subscribe({
+    this.authService.signup(signupPayload).subscribe({
       next: (a) => {
         console.log('A ', a);
         this.spinner.hide();
