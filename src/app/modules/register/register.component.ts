@@ -28,7 +28,8 @@ export class RegisterComponent implements OnInit {
     password: [''],
     confirmPassword: [''],
   });
-
+  public firstNameErrorMsg = {hasFirstname: false, message: ''}
+  public lastNameErrorMsg = {hasLastName: false, message: ''}
   public emailErrorMsg = { hasEmail: false, message: '' };
   public passwordErrorMsg = { hasPassword: false, message: '' };
 
@@ -41,6 +42,8 @@ export class RegisterComponent implements OnInit {
   signup() {
     let signupPayload = this.registerForm.value;
     this.spinner.show();
+    this.firstNameErrorMsg = {hasFirstname: false, message: ''};
+    this.lastNameErrorMsg = {hasLastName: false, message: ''}
     this.passwordErrorMsg = { hasPassword: false, message: '' };
     this.emailErrorMsg = { hasEmail: false, message: '' };
     this.authService.signup(signupPayload).subscribe({
@@ -56,7 +59,13 @@ export class RegisterComponent implements OnInit {
           console.log(this.formErrors);
           // If error is an array of objects
           this.formErrors.forEach((element) => {
-            if (element.param === 'email') {
+            if (element.param === 'firstname') {
+              this.firstNameErrorMsg.hasFirstname = true;
+              this.firstNameErrorMsg.message = element.msg;
+            }else if(element.param === 'lastname'){
+              this.lastNameErrorMsg.hasLastName = true;
+              this.lastNameErrorMsg.message = element.msg;
+            }else if(element.param === 'email'){
               this.emailErrorMsg.hasEmail = true;
               this.emailErrorMsg.message = element.msg;
             } else if (element.param === 'password') {
