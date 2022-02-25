@@ -28,7 +28,8 @@ export class RegisterComponent implements OnInit {
   userExists: boolean;
   registerForm = this.fb.group({
     // firstname: [''],
-    name: [''],
+    firstname: [''],
+    lastname: [''],
     email: [''],
     password: [''],
     confirmPassword: [''],
@@ -48,6 +49,7 @@ export class RegisterComponent implements OnInit {
         this.formErrors = err.error;
         // if(Object.keys(this.formErrors[0]).length > 0){ // If error is an array of objects
         if (this.formErrors.length > 0) {
+          console.log(this.formErrors)
           // If error is an array of objects
           this.formErrors.forEach((element) => {
             if (element.param === 'email') {
