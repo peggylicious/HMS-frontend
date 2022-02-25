@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { formErrors } from 'src/app/core/models/authFormError';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -16,13 +17,6 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) {}
-
-  ngOnInit(): void {
-    // this.spinner.show();
-  }
-  public emailErrorMsg = { hasEmail: false, message: '' };
-  public passwordErrorMsg = { hasPassword: false, message: '' };
-
   formErrors: { param: string; msg: string }[];
   formError: { message: '' };
   userExists: boolean;
@@ -34,6 +28,16 @@ export class RegisterComponent implements OnInit {
     password: [''],
     confirmPassword: [''],
   });
+
+  public emailErrorMsg = { hasEmail: false, message: '' };
+  public passwordErrorMsg = { hasPassword: false, message: '' };
+
+  ngOnInit(): void {
+    // this.spinner.show();
+  }
+
+
+
   signup() {
     let signupPayload = this.registerForm.value;
     this.spinner.show();
@@ -49,7 +53,7 @@ export class RegisterComponent implements OnInit {
         this.formErrors = err.error;
         // if(Object.keys(this.formErrors[0]).length > 0){ // If error is an array of objects
         if (this.formErrors.length > 0) {
-          console.log(this.formErrors)
+          console.log(this.formErrors);
           // If error is an array of objects
           this.formErrors.forEach((element) => {
             if (element.param === 'email') {
