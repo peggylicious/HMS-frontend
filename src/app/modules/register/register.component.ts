@@ -12,13 +12,20 @@ export class RegisterComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private spinner: NgxSpinnerService, private router: Router, private activatedRoute: ActivatedRoute
-    
+    private spinner: NgxSpinnerService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     // this.spinner.show();
   }
+  public emailErrorMsg = { hasEmail: false, message: '' };
+  public passwordErrorMsg = { hasPassword: false, message: '' };
+
+  formErrors: { param: string; msg: string }[];
+  formError: { message: '' };
+  userExists: boolean;
   registerForm = this.fb.group({
     // firstname: [''],
     name: [''],
@@ -26,17 +33,38 @@ export class RegisterComponent implements OnInit {
     password: [''],
     confirmPassword: [''],
   });
-  login() {
-    let x = this.registerForm.value;
-    // this.spinner.show();
-    this.authService.login(x).subscribe({
+  signup() {
+    let signupPayload = this.registerForm.value;
+    this.spinner.show();
+    this.passwordErrorMsg = { hasPassword: false, message: '' };
+    this.emailErrorMsg = { hasEmail: false, message: '' };
+    this.authService.login(signupPayload).subscribe({
       next: (a) => {
         console.log('A ', a);
         this.spinner.hide();
-        this.router.navigate(['/login'])
+        this.router.navigate(['/login']);
       },
       error: (err) => {
-        console.log(err.error.message);
+        this.formErrors = err.error;
+        // if(Object.keys(this.formErrors[0]).length > 0){ // If error is an array of objects
+        if (this.formErrors.length > 0) {
+          // If error is an array of objects
+          this.formErrors.forEach((element) => {
+            if (element.param === 'email') {
+              this.emailErrorMsg.hasEmail = true;
+              this.emailErrorMsg.message = element.msg;
+            } else if (element.param === 'password') {
+              this.passwordErrorMsg.hasPassword = true;
+              this.passwordErrorMsg.message = element.msg;
+            } else {
+              console.log(err);
+            }
+          });
+        } else {
+          this.userExists = true;
+          this.formError = err.error;
+        }
+        console.log(this.formErrors);
         this.spinner.hide();
       },
     });
