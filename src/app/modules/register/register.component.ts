@@ -55,25 +55,10 @@ export class RegisterComponent implements OnInit {
       error: (err) => {
         this.formErrors = err.error;
         // if(Object.keys(this.formErrors[0]).length > 0){ // If error is an array of objects
-        if (this.formErrors.length > 0) {
+        if (this.formErrors.length > 0) {  // If error is an array of objects
           console.log(this.formErrors);
-          // If error is an array of objects
           this.formErrors.forEach((element) => {
-            if (element.param === 'firstname') {
-              this.firstNameErrorMsg.hasFirstname = true;
-              this.firstNameErrorMsg.message = element.msg;
-            }else if(element.param === 'lastname'){
-              this.lastNameErrorMsg.hasLastName = true;
-              this.lastNameErrorMsg.message = element.msg;
-            }else if(element.param === 'email'){
-              this.emailErrorMsg.hasEmail = true;
-              this.emailErrorMsg.message = element.msg;
-            } else if (element.param === 'password') {
-              this.passwordErrorMsg.hasPassword = true;
-              this.passwordErrorMsg.message = element.msg;
-            } else {
-              console.log(err);
-            }
+            this.checkError(element, err)
           });
         } else {
           this.userExists = true;
@@ -83,5 +68,22 @@ export class RegisterComponent implements OnInit {
         this.spinner.hide();
       },
     });
+  }
+  checkError(element:{param:string, msg:string}, err:any){
+    if (element.param === 'firstname') {
+      this.firstNameErrorMsg.hasFirstname = true;
+      this.firstNameErrorMsg.message = element.msg;
+    }else if(element.param === 'lastname'){
+      this.lastNameErrorMsg.hasLastName = true;
+      this.lastNameErrorMsg.message = element.msg;
+    }else if(element.param === 'email'){
+      this.emailErrorMsg.hasEmail = true;
+      this.emailErrorMsg.message = element.msg;
+    } else if (element.param === 'password') {
+      this.passwordErrorMsg.hasPassword = true;
+      this.passwordErrorMsg.message = element.msg;
+    } else {
+      console.log(err);
+    }
   }
 }
