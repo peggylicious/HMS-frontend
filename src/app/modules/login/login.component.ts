@@ -8,7 +8,8 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder, private authService: AuthService) {}
-
+  public authFailed:boolean = false;
+  public authErrorMsg: string;
   ngOnInit(): void {}
   loginForm = this.fb.group({
     email: [''],
@@ -19,6 +20,8 @@ export class LoginComponent implements OnInit {
       next: (response) => {
         console.log(response);
       },error: (err)=>{
+        this.authFailed = true
+        this.authErrorMsg = err.error.message;
         console.log(err)
       }
     });
