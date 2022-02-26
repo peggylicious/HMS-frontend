@@ -47,7 +47,7 @@
 .field_wrapper button {
   height: 45px;
   width: 300px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 .btn_wrapper{
   margin-top: 41px;
