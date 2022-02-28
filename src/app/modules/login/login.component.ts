@@ -8,7 +8,7 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder, private authService: AuthService) {}
-  public authFailed:boolean = false;
+  public authFailed: boolean = false;
   public authErrorMsg: string;
   ngOnInit(): void {}
   loginForm = this.fb.group({
@@ -19,11 +19,21 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginForm.value).subscribe({
       next: (response) => {
         console.log(response);
-      },error: (err)=>{
-        this.authFailed = true
-        this.authErrorMsg = err.error.message;
-        console.log(err)
-      }
+      },
+      error: (err) => {
+        this.authFailed = false;
+        this.authErrorMsg = ""
+        if (err.error.length > 0) {
+          this.authFailed = true;
+          this.authErrorMsg = err.error[0].msg;
+          console.log(this.authErrorMsg)
+        }else{
+          this.authFailed = true;
+          this.authErrorMsg = err.error.message;
+          console.log(err);
+        }
+        
+      },
     });
   }
 }
