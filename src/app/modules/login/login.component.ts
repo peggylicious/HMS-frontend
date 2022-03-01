@@ -18,8 +18,9 @@ export class LoginComponent implements OnInit {
   });
   login() {
     this.authService.login(this.loginForm.value).subscribe({
-      next: (response) => {
+      next: (response:any) => {
         console.log(response);
+        localStorage.setItem('token', response.token)
         this.router.navigate(['/']);
 
       },
