@@ -5,6 +5,7 @@ import { LoginRoutingModule } from './login-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login.component';
 
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { LoginComponent } from './login.component';
   imports: [
     CommonModule,
     LoginRoutingModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule, 
+    NgxSpinnerModule
   ]
 })
 export class LoginModule { }
