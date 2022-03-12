@@ -32,7 +32,8 @@ const routes: Routes = [
   {
     path: 'try',
     component: TryComponent
-  }
+  },
+  { path: 'home', loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule) }
 ];
 
 @NgModule({
