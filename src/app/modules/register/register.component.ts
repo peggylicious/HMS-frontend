@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import { AuthService } from 'src/app/core/authentication/auth.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { formErrors } from 'src/app/core/models/authFormError';
 @Component({
