@@ -1,4 +1,11 @@
 <p>home works!</p>
-<form action=""  class="login_form">
-    
+<form action=""  class="login_form" [formGroup]="searchForm">
+  <input type="search" name="" id="" formControlName="firstname" (keyup)="searchDoctor()">  
 </form>
+<div *ngIf="showDoctorSearch">
+  <p *ngFor="let doctor of doctors" (click)="displayDoctorDetails(doctor)">{{ doctor.firstname }} {{ doctor.lastname }}</p>
+</div>
+<div *ngIf="!showDoctorSearch">
+<p>{{ selectedDoctor.firstname }} {{ selectedDoctor.lastname }}</p>
+<p>{{ selectedDoctor.email}}</p>
+</div>
