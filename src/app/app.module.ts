@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { CoreModule } from './core/core.module';
 
 import { TryComponent } from './components/try/try.component';
 @NgModule({
@@ -20,7 +21,8 @@ import { TryComponent } from './components/try/try.component';
     ReactiveFormsModule,
     HttpClientModule, 
     NgxSpinnerModule, 
-    BrowserAnimationsModule
+    BrowserAnimationsModule, 
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent], 
