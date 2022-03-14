@@ -9,12 +9,10 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { TryComponent } from './components/try/try.component';
-import { CardsComponent } from './home/components/cards/cards.component';
 @NgModule({
   declarations: [
     AppComponent,
     TryComponent,
-    CardsComponent
   ],
   imports: [
     BrowserModule,
