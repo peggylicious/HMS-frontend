@@ -1,0 +1,10 @@
+.hms-hd-container{
+    height: 64px;
+    width: 100%;
+    background: red;
+}
+.hms-hamburger{
+    height: 100%;
+    width: 50px;
+    background-color: green;
+}
