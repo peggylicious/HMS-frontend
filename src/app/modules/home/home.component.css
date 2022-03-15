@@ -1,0 +1,12 @@
+@import "../../../styles.css";
+.home-headline{
+    padding: 20px;
+}
+.home-wrapper{
+    background-color: var(--primaryDark);
+}
+.categories-wrapper{
+    background-color: var(--primaryLightest);
+    border-radius: 53px 53px 0px 0px;
+    height: 700px;
+}

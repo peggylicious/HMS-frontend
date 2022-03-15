@@ -5,13 +5,15 @@ import { CoreRoutingModule } from './core-routing.module';
 import { CoreComponent } from './core.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { SearchComponent } from './components/search/search.component';
 
 
 @NgModule({
   declarations: [
     CoreComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { FooterComponent } from './components/footer/footer.component';
   ], 
   exports: [
     HeaderComponent, 
-    FooterComponent
+    FooterComponent, 
+    SearchComponent
   ]
 })
 export class CoreModule { }

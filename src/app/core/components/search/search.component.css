@@ -1,0 +1,26 @@
+.home-search-wrapper {
+  position: relative;
+}
+.home-search {
+  height: 45px;
+  width: 100%;
+  outline: none;
+  border: none;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding-left: 26px;
+}
+.home-search-btn-wrapper {
+  position: absolute;
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  transform: translateY(-51%);
+}
+.home-search-btn{
+  background: var(--primaryDark);
+  width: 49px;
+  height: 45px;
+  border-radius: 10px;
+  border: 1px solid #FFFFFF;
+}
