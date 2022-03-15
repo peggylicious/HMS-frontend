@@ -5,7 +5,7 @@
 .home-wrapper{
     background-color: var(--primaryDark);
 }
-.categories-wrapper{
+.main-area{
     background-color: var(--primaryLightest);
     border-radius: 53px 53px 0px 0px;
     height: 700px;
