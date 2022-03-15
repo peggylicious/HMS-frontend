@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { CoreRoutingModule } from './core-routing.module';
 import { CoreComponent } from './core.component';
@@ -17,7 +18,8 @@ import { SearchComponent } from './components/search/search.component';
   ],
   imports: [
     CommonModule,
-    CoreRoutingModule
+    CoreRoutingModule,
+    ReactiveFormsModule
   ], 
   exports: [
     HeaderComponent, 

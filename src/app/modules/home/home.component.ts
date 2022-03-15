@@ -21,8 +21,14 @@ export class HomeComponent implements OnInit {
   selectedDoctor: any;
   ngOnInit(): void {}
 
-  searchDoctor() {
-    this.patientService.searchDoctor(this.searchForm.value).subscribe({
+  searchDoctor(event: {firstname: String}) {
+    if(event.firstname === ""){
+      console.log("Str")
+      this.showDoctorSearch = false;
+      // event = new Error("No")
+      return
+    }
+    this.patientService.searchDoctor(event).subscribe({
       next: (response: any) => {
         console.log(response);
         this.doctors = response.doctors;
