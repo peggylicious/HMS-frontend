@@ -9,4 +9,19 @@
     background-color: var(--primaryLightest);
     border-radius: 53px 53px 0px 0px;
     height: 700px;
+    padding: 33px 30px;
+}
+.categories{
+    display: flex;
+    justify-content: space-between;
+}
+.categories-header{
+    display: flex;
+    justify-content: space-between;
+}
+.card-t{
+    margin: 0;
+}
+.card-pic{
+    margin-bottom: 7px;
 }

@@ -12,5 +12,19 @@
       <p>{{ selectedDoctor.email }}</p>
     </div>
   </div>
-  <div class="main-area"></div>
+  <div class="main-area">
+    <div class="categories-wrapper">
+      <div class="categories-header">
+        <p class="categoris-title">Categories</p>
+        <p class="see-more">See all</p>
+      </div>
+      <div class="categories">
+        <app-cards *ngFor="let cat of categories">
+          <img [src]="cat.pic" alt="" class="card-pic">
+          <p class="card-t">{{ cat.title }}</p>
+        </app-cards>
+      </div>
+    </div>
+    
+  </div>
 </div>

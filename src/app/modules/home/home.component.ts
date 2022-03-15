@@ -19,14 +19,28 @@ export class HomeComponent implements OnInit {
   doctors: { firstname: String; lastname: String }[];
   showDoctorSearch: boolean = true;
   selectedDoctor: any;
+  categories = [
+    {
+      title: 'Cardiology',
+      pic: '../../../assets/images/home-categories/cardio.png',
+    },
+    {
+      title: 'Orthopaedic',
+      pic: '../../../assets/images/home-categories/ortho.png',
+    },
+    {
+      title: "Dentist", 
+      pic: "../../../assets/images/home-categories/dentist.png"
+    }
+  ];
   ngOnInit(): void {}
 
-  searchDoctor(event: {firstname: String}) {
-    if(event.firstname === ""){
-      console.log("Str")
+  searchDoctor(event: { firstname: String }) {
+    if (event.firstname === '') {
+      console.log('Str');
       this.showDoctorSearch = false;
       // event = new Error("No")
-      return
+      return;
     }
     this.patientService.searchDoctor(event).subscribe({
       next: (response: any) => {
