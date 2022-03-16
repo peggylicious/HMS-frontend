@@ -4,12 +4,12 @@
     <app-search (searchEvent)="searchDoctor($event)"></app-search>
     <div *ngIf="showDoctorSearch">
       <p *ngFor="let doctor of doctors" (click)="displayDoctorDetails(doctor)">
-        {{ doctor.firstname }} {{ doctor.lastname }}
+        {{ doctor?.firstname }} {{ doctor?.lastname }}
       </p>
     </div>
     <div *ngIf="!showDoctorSearch">
-      <p>{{ selectedDoctor.firstname }} {{ selectedDoctor.lastname }}</p>
-      <p>{{ selectedDoctor.email }}</p>
+      <p>{{ selectedDoctor?.firstname }} {{ selectedDoctor?.lastname }}</p>
+      <p>{{ selectedDoctor?.email }}</p>
     </div>
   </div>
   <div class="main-area">
@@ -20,8 +20,8 @@
       </div>
       <div class="categories">
         <app-cards *ngFor="let cat of categories">
-          <img [src]="cat.pic" alt="" class="card-pic">
-          <p class="card-t">{{ cat.title }}</p>
+          <img [src]="cat?.pic" alt="" class="card-pic">
+          <p class="card-t">{{ cat?.title }}</p>
         </app-cards>
       </div>
     </div>

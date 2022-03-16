@@ -38,8 +38,9 @@ export class HomeComponent implements OnInit {
   searchDoctor(event: { firstname: String }) {
     if (event.firstname === '') {
       console.log('Str');
-      this.showDoctorSearch = false;
+      this.showDoctorSearch = !this.showDoctorSearch;
       // event = new Error("No")
+      throw new Error("Hello")
       return;
     }
     this.patientService.searchDoctor(event).subscribe({
@@ -53,6 +54,9 @@ export class HomeComponent implements OnInit {
         // this.router.navigate(['/home']);
       },
       error: (err) => {
+        console.log(err)
+        this.showDoctorSearch = false;
+
         // this.authFailed = false;
         // this.authErrorMsg = '';
         // if (err.error.length > 0) {
