@@ -9,6 +9,10 @@
     --primaryLightest: #EBF0FF;
     --white: #ffffff;
     --neutralBlack: #25282B;
+
+    --mainTextDark: #172331;
+    --mainTextLight: #8C8FA5;
+    --linkText: #555FD2;
   }
 
   *{

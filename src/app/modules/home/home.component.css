@@ -1,32 +1,53 @@
 @import "../../../styles.css";
-.main-headline{
-    padding: 20px;
+.main-headline {
+  padding: 20px;
 }
-.home-wrapper{
-    background-color: var(--primaryDark);
+.home-wrapper {
+  background-color: var(--primaryDark);
 }
-.main-area{
-    background-color: var(--primaryLightest);
-    border-radius: 53px 53px 0px 0px;
-    height: 700px;
-    padding: 33px 30px;
+.main-area {
+  background-color: var(--primaryLightest);
+  border-radius: 53px 53px 0px 0px;
+  /* height: 700px; */
+  padding: 33px 30px;
 }
-.categories-wrapper{
-    /* margin-top: 21px; */
-    margin-bottom: 27px;
+.categories-wrapper {
+  /* margin-top: 21px; */
+  margin-bottom: 27px;
 }
-.categories{
-    display: flex;
-    justify-content: space-between;
+.categories {
+  display: flex;
+  justify-content: space-between;
 }
-.categories-header, .tdoc-header{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 21px;
+.categories-header,
+.tdoc-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 21px;
 }
-.card-t{
-    margin: 0;
+.categories-header .categories-title,
+.tdoc-header .tdoc-title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.02em;
 }
-.card-pic{
-    margin-bottom: 7px;
+.categories-header .see-more,
+.tdoc-header .see-more {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.02em;
+  color: var(--linkText);
+}
+.card-t {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.02em;
+  color: var(--mainTextDark);
+  margin: 0;
+}
+.card-pic {
+  margin-bottom: 7px;
 }

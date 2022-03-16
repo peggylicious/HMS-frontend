@@ -10,6 +10,7 @@ p{
   background-color: var(--white);
   width: 100%;
   border-radius: 10px;
+  margin-bottom: 16px;
 }
 .doctor-mini-view-img -wrapper{
     align-self: center;
@@ -33,7 +34,7 @@ p{
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 0.02em;
-  color: #8c8fa5;
+  color: var(--mainTextLight);
   margin-bottom: 5px;
 }
 .details .consult-price {
@@ -41,7 +42,7 @@ p{
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 0.02em;
-  color: #172331;
+  color: var(--mainTextBlack);
 }
 .ratings-book-btn {
   display: flex;
@@ -60,6 +61,7 @@ p{
   line-height: 14px;
   letter-spacing: 0.02em;
   margin-bottom: 0;
+  color: var(--mainTextBlack)
 }
 .book-btn {
   padding: 6px 14px;
