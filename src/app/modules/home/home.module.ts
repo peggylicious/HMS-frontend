@@ -5,18 +5,19 @@ import { HomeRoutingModule } from './home-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home.component';
 import { CardsComponent } from './components/cards/cards.component';
-
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
     HomeComponent,
-    CardsComponent
+    CardsComponent, 
   ],
   imports: [
     CommonModule,
     HomeRoutingModule, 
     ReactiveFormsModule, 
-    CoreModule
+    CoreModule, 
+    SharedModule
   ]
 })
 export class HomeModule { }

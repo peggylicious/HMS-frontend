@@ -11,13 +11,18 @@
     height: 700px;
     padding: 33px 30px;
 }
+.categories-wrapper{
+    /* margin-top: 21px; */
+    margin-bottom: 27px;
+}
 .categories{
     display: flex;
     justify-content: space-between;
 }
-.categories-header{
+.categories-header, .tdoc-header{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 21px;
 }
 .card-t{
     margin: 0;

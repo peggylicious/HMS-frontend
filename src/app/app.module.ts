@@ -10,10 +10,13 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { CoreModule } from './core/core.module';
 
 import { TryComponent } from './components/try/try.component';
+import { SharedModule } from './shared/shared.module';
+// import { DoctorViewCardComponent } from './shared/components/doctor-view-card/doctor-view-card.component';
 @NgModule({
   declarations: [
     AppComponent,
     TryComponent,
+    // DoctorViewCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,8 @@ import { TryComponent } from './components/try/try.component';
     HttpClientModule, 
     NgxSpinnerModule, 
     BrowserAnimationsModule, 
-    CoreModule
+    CoreModule, 
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent], 

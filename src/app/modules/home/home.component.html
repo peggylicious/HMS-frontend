@@ -15,7 +15,7 @@
   <div class="main-area">
     <div class="categories-wrapper">
       <div class="categories-header">
-        <p class="categoris-title">Categories</p>
+        <p class="categories-title">Categories</p>
         <p class="see-more">See all</p>
       </div>
       <div class="categories">
@@ -23,6 +23,15 @@
           <img [src]="cat.pic" alt="" class="card-pic">
           <p class="card-t">{{ cat.title }}</p>
         </app-cards>
+      </div>
+    </div>
+    <div class="top-doctors-wrapper">
+      <div class="tdoc-header">
+        <p class="tdoc-title">Top Doctors</p>
+        <p class="see-more">See all</p>
+      </div>
+      <div class="tdocs">
+        <app-doctor-view-card></app-doctor-view-card>
       </div>
     </div>
     
