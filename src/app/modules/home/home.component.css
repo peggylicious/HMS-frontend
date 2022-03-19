@@ -51,3 +51,19 @@
 .card-pic {
   margin-bottom: 7px;
 }
+.search-result{
+    margin-top: 32px;
+}
+.doc-result{
+    padding-bottom: 16px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--mainTextLight);
+    color: var(--mainTextLight);
+}
+.result-header{
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 18px;
+    color: var(--mainTextDark);
+    margin-bottom: 11px;
+}

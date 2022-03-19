@@ -2,8 +2,9 @@
   <div class="main-headline">
     
     <app-search (searchEvent)="searchDoctor($event)"></app-search>
-    <div *ngIf="showDoctorSearch">
-      <p *ngFor="let doctor of doctors" (click)="displayDoctorDetails(doctor)">
+    <div *ngIf="showDoctorSearch" class="search-result">
+      <p class="result-header">Search Results</p>
+      <p *ngFor="let doctor of doctors" (click)="displayDoctorDetails(doctor)" class="doc-result">
         {{ doctor?.firstname }} {{ doctor?.lastname }}
       </p>
     </div>

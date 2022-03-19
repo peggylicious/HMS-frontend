@@ -37,7 +37,9 @@ const routes: Routes = [
     path: 'try',
     component: TryComponent
   },
-  { path: 'home', loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule) }
+  { path: 'home', loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule) },
+  {path: 'appointments', component: TryComponent},
+  { path: 'paiient-doctor', loadChildren: () => import('./patient-doctor/patient-doctor.module').then(m => m.PatientDoctorModule) }
 ];
 
 @NgModule({

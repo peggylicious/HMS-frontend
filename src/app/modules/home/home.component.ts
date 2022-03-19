@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 import { Router, ActivatedRoute } from '@angular/router';
@@ -11,13 +12,14 @@ import { PatientService } from 'src/app/patient/patient.service';
 export class HomeComponent implements OnInit {
   constructor(
     private patientService: PatientService,
-    private fb: FormBuilder
+    private fb: FormBuilder, 
+    private location: Location
   ) {}
   searchForm = this.fb.group({
     firstname: [''],
   });
   doctors: { firstname: String; lastname: String }[];
-  showDoctorSearch: boolean = true;
+  showDoctorSearch: boolean = false;
   selectedDoctor: any;
   categories = [
     {
@@ -36,13 +38,20 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {}
 
   searchDoctor(event: { firstname: String }) {
-    if (event.firstname === '') {
-      console.log('Str');
-      this.showDoctorSearch = !this.showDoctorSearch;
-      // event = new Error("No")
-      throw new Error("Hello")
-      return;
-    }
+    
+    // try {
+      if (event.firstname === '') {
+        console.log('Str');
+        this.showDoctorSearch = !this.showDoctorSearch;
+        let errorMsg = new Error("Empty search field");
+        errorMsg.message = "New message"
+        throw errorMsg
+        return;
+      }
+    // } catch (error) {
+    //   this.showDoctorSearch = !this.showDoctorSearch;
+    //   return
+    // }
     this.patientService.searchDoctor(event).subscribe({
       next: (response: any) => {
         console.log(response);
@@ -76,5 +85,8 @@ export class HomeComponent implements OnInit {
     console.log('hi');
     this.showDoctorSearch = !this.showDoctorSearch;
     this.selectedDoctor = x;
+  }
+  changeLocation(){
+    this.location.replaceState('/login');
   }
 }
