@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="home-wrapper">
   <div class="main-headline">
     
@@ -32,13 +33,10 @@
         <p class="see-more">See all</p>
       </div>
       <div class="tdocs">
-        <app-doctor-view-card></app-doctor-view-card>
-        <app-doctor-view-card></app-doctor-view-card>
-        <app-doctor-view-card></app-doctor-view-card>
-        <app-doctor-view-card></app-doctor-view-card>
-
+        <app-doctor-view-card *ngFor="let doctor of allDoctors" [doctorDetails]="doctor"></app-doctor-view-card>
       </div>
     </div>
     
   </div>
 </div>
+<app-footer></app-footer>

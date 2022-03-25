@@ -1,6 +1,6 @@
 <div class="doctor-details-view-container">
     <div class="doc-view-card-container">
-        <app-doctor-view-card></app-doctor-view-card>
+        <app-doctor-view-card [doctorDetails]="doctor"></app-doctor-view-card>
     </div>
     <div class="doc-summary">
         <div class="doc-metric">
@@ -45,7 +45,23 @@
                 <p class="hms-content-sm">Mon-Fri 09:00 am - 08:00 pm</p>
             </div>
             <div class="month-year">
-                <h4 class="hms-title-sm">January</h4>
+                <select name="" id=""class="hms-title-sm" (change)="setApppointmentMonth($event.target)">
+                    <option value="01">January</option>
+                    <option value="02">Febuary</option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                </select>
+                <select name="" id=""class="hms-title-sm" (change)="setAppointmentYear($event.target)">
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                </select>
+                <!-- <h4 class="hms-title-sm">January</h4> -->
+            </div>
+            <div class="calendar-wrapper">
+                <div class="calendar" *ngFor="let day of appointmentDays">
+                    <p>{{ days_of_week[day.day] }}</p>
+                    <p> {{ day.date }}</p>
+                </div>
             </div>
             <div class="action-btns">
                 <div class="fave">
@@ -53,7 +69,10 @@
                         <path d="M25.1891 3.24568C24.1002 1.05443 20.9635 -0.738414 17.3148 0.305419C15.5713 0.799239 14.0501 1.85825 12.9998 3.30943C11.9495 1.85825 10.4283 0.799239 8.68481 0.305419C5.02802 -0.722477 1.89944 1.05443 0.810528 3.24568C-0.717197 6.31344 -0.0833537 9.76366 2.69581 13.5007C4.87363 16.4251 7.98596 19.3892 12.5041 22.8315C12.6469 22.9407 12.8228 23 13.0039 23C13.185 23 13.3609 22.9407 13.5036 22.8315C18.0137 19.3972 21.1341 16.4569 23.312 13.5007C26.083 9.76366 26.7168 6.31344 25.1891 3.24568Z" fill="#FBFBFB"/>
                     </svg>                        
                 </div>
-                <div class="book-app"><button class="book-btn">Book appointment</button></div>
+                <div class="book-app">
+                    <button class="book-btn" (click)="bookAppointment()">Book appointment</button>
+                    <!-- <app-hms-button [buttonText]="'View & Book'" (clickedHmsBtn)="bookAppointment()" ></app-hms-button> -->
+                </div>
             </div>
         </div>
     </div>

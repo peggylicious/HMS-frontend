@@ -3,7 +3,7 @@
         <img src="../../../../assets/images/home-categories/default-img.png" alt="" class="doctor-mini-view-img">
     </div>
     <div class="details">
-        <h3 class="doc-name">Dr. Jenny Roy</h3>
+        <h3 class="doc-name">{{doctorDetails.firstname}}</h3>
         <p class="dept">Surgery</p>
         <p class="consult-price">$300</p>
     </div>
@@ -14,9 +14,10 @@
                 </svg>
         <p class="ratings-number">4.5</p>                
         </div>
-        <!-- <button class="book-btn">
-            Book
+        <app-hms-button [buttonText]="'View & Book'" (clickedHmsBtn)="viewDocDetails()" ></app-hms-button>
+        <!-- <button [routerLink]="['/login']" class="book-btn">
+            View & Book
         </button> -->
-        <a [routerLink]="[ '/appointments' ]" class="book-btn">Book</a>
+        <!-- <a [routerLink]="[ '/appointments' ]" class="book-btn" (click)="doSomething()">View & Book</a> -->
     </div>
 </div>

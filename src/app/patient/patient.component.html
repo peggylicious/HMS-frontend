@@ -1,1 +1,12 @@
-<p>patient works!</p>
+<form action="" [formGroup]="dateForm">
+    <h2>Doctor Time Form</h2>
+    <input type="date" name="" id="" formControlName="date">
+    <input type="time" name="" id="" formControlName="time">
+    <!-- <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="title">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <button matSuffix [matDatepickerToggle]="picker"></button>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field> -->
+    <button (click)="sendDate()">Send date</button>
+</form>

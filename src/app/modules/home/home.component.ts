@@ -4,6 +4,8 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 import { Router, ActivatedRoute } from '@angular/router';
 import { PatientService } from 'src/app/patient/patient.service';
+import { DoctorsService } from 'src/app/services/doctors.service';
+import { StateService } from 'src/app/services/state.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,12 +15,15 @@ export class HomeComponent implements OnInit {
   constructor(
     private patientService: PatientService,
     private fb: FormBuilder, 
-    private location: Location
+    private location: Location, 
+    private doctorService: DoctorsService, 
+    private stateService: StateService
   ) {}
   searchForm = this.fb.group({
     firstname: [''],
   });
   doctors: { firstname: String; lastname: String }[];
+  allDoctors: any;
   showDoctorSearch: boolean = false;
   selectedDoctor: any;
   categories = [
@@ -35,7 +40,9 @@ export class HomeComponent implements OnInit {
       pic: "../../../assets/images/home-categories/dentist.png"
     }
   ];
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getDoctors()
+  }
 
   searchDoctor(event: { firstname: String }) {
     
@@ -88,5 +95,17 @@ export class HomeComponent implements OnInit {
   }
   changeLocation(){
     this.location.replaceState('/login');
+  }
+
+  getDoctors(){
+    this.doctorService.getDoctors().subscribe({
+      next: (x:any)=>{
+        console.log(x)
+        this.allDoctors = x.doctors
+      }, 
+      error: (err:any) =>{
+        console.log(err)
+      }
+    })
   }
 }

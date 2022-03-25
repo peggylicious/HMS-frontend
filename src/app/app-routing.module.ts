@@ -2,17 +2,18 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TryComponent } from './components/try/try.component';
 import { ViewDoctorDetailsComponent } from './modules/patient-doctor/pages/view-doctor-details/view-doctor-details.component';
+import { PatientComponent } from './patient/patient.component';
 
 const routes: Routes = [
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full'
   },
-  // {
-  //   path: 'patient',
-  //   loadChildren: () =>
-  //     import('./patient/patient.module').then((m) => m.PatientModule),
-  // },
+  {
+    path: 'fix-appointment',
+    loadChildren: () =>
+      import('./patient/patient.module').then((m) => m.PatientModule),
+  },
   {
     path: 'shared',
     loadChildren: () =>
@@ -36,7 +37,7 @@ const routes: Routes = [
   },
   {
     path: 'try',
-    component: TryComponent
+    component: PatientComponent
   },
   { path: 'home', loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule) },
   {path: 'appointments', component: TryComponent},
