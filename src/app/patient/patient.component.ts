@@ -29,6 +29,6 @@ dateTime: any[] = [{year: "", month: "", day: ""}];
     }
     
     console.log(this.dateForm.value)
-    console.log(this.myDate)
+    console.log("Time ", this.myDate.time)
   }
 }

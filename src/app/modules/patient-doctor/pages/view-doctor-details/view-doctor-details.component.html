@@ -63,6 +63,12 @@
                     <p> {{ day.date }}</p>
                 </div>
             </div>
+            <div class="calendar-wrapper">
+                <div class="calendar" *ngFor="let day of days_array_obj">
+                    <p>{{ days_of_week[day.day] }}</p>
+                    <p> {{ day.date }}</p>
+                </div>
+            </div>
             <div class="action-btns">
                 <div class="fave">
                     <svg width="26" height="23" viewBox="0 0 26 23" fill="none" xmlns="http://www.w3.org/2000/svg">

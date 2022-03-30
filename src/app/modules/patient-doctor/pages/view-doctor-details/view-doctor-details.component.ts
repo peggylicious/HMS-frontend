@@ -17,10 +17,13 @@ export class ViewDoctorDetailsComponent implements OnInit {
   selectedYear: any;
   doctAppointmentSchedule: any;
   appointmentDays: any;
-  days_of_week: any[] = ['sun', 'mon', 'tue','wed', 'thur', 'fri', 'sat']
+  days_of_week: any[] = ['sun', 'mon', 'tue', 'wed', 'thur', 'fri', 'sat'];
+  days_array: any[] = [];
+  days_array_obj: any[] = [];
   ngOnInit(): void {
     // this.doctor = JSON.parse(localStorage.getItem('doctor'))
     this.getItem();
+    this.getSunday();
   }
   getItem() {
     this.doctor = JSON.parse(localStorage.getItem('doctor') || '{}');
@@ -37,18 +40,20 @@ export class ViewDoctorDetailsComponent implements OnInit {
       .getAppointment(this.selectedMonth, this.selectedYear, this.doctor._id)
       .subscribe({
         next: (appo) => {
-          console.log(appo)
+          console.log(appo);
           this.doctAppointmentSchedule = appo;
-          this.appointmentDays = this.doctAppointmentSchedule.map((x: any) => { //Get day of appointment and put it in a new array
+          this.appointmentDays = this.doctAppointmentSchedule.map((x: any) => {
+            //Get day of appointment and put it in a new array
             let newObj = {
               // date: x.date,
               date: Number(x.date.split('-')[2]),
-              day: new Date(x.date).getDay()
-            }
-            return newObj
+              day: new Date(x.date).getDay(),
+            };
+            return newObj;
             // return Number(x.date.split('-')[2]); // e.g. date is 2022-05-23 i.e yyyy-mm-dd
           });
-          this.appointmentDays.sort(function (a:any, b:any) {//Sort array in ascending order
+          this.appointmentDays.sort(function (a: any, b: any) {
+            //Sort array in ascending order
             return a.day - b.day; // Sort days by ascending number
           });
 
@@ -56,5 +61,35 @@ export class ViewDoctorDetailsComponent implements OnInit {
         },
         error: (err) => console.log(err),
       });
+  }
+
+  getSunday() {
+    // let days_of_week = [];
+    for (let i = 0; i <= 6; i++) {
+      let currentDay = new Date();
+      //let days_of_week = [];
+      if (i < currentDay.getDay()) {
+        //let getNext = currentDay.getDate() - (currentDay.getDay() - i)
+        let getPrev = new Date(
+          currentDay.setDate(currentDay.getDate() - (i + 1))
+        );
+        this.days_array.push(getPrev);
+        this.days_array_obj.push({date: getPrev.getDate(), day: getPrev.getDay()})
+      } else if (i > currentDay.getDay()) {
+        let getNext = new Date(
+          currentDay.setDate(currentDay.getDate() + (i - currentDay.getDay()))
+        );
+        this.days_array.push(getNext);
+        this.days_array_obj.push({date: getNext.getDate(), day: getNext.getDay()})
+      } else {
+        this.days_array.push(currentDay);
+        // this.days_array_obj.push({date: currentDay.getDate(), day: this.days_of_week[currentDay.getDay()]})
+        this.days_array_obj.push({date: currentDay.getDate(), day: currentDay.getDay()})
+      }
+      this.days_array_obj.sort(function (a: any, b: any) {
+        //Sort array in ascending order
+        return a.day - b.day; // Sort days by ascending number
+      });
+    }
   }
 }
