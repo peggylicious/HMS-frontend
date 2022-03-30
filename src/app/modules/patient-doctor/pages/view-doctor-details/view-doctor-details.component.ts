@@ -102,7 +102,7 @@ export class ViewDoctorDetailsComponent implements OnInit {
           day: getPrev.getDay(),
           fullDate: `${getPrev.getFullYear()}-${
             (getPrev.getMonth() + 1 < 10 ? '0' + (getPrev.getMonth() + 1) : (getPrev.getMonth() + 1))
-          }-${getPrev.getDate() < 10 ? '0'+ getPrev.getDate() : getPrev.getDate()}}`, //yy-mm-dd
+          }-${getPrev.getDate() < 10 ? '0'+ getPrev.getDate() : getPrev.getDate()}`, //yy-mm-dd
         });
       } else if (i > currentDay.getDay()) {
         let getNext = new Date(
@@ -116,7 +116,7 @@ export class ViewDoctorDetailsComponent implements OnInit {
             getNext.getMonth() + 1 < 10
               ? '0' + (getNext.getMonth() + 1)
               : getNext.getMonth() + 1
-          }-${getNext.getDate() < 10 ? '0'+ getNext.getDate() : getNext.getDate()}}`,
+          }-${getNext.getDate() < 10 ? '0'+ getNext.getDate() : getNext.getDate()}`,
         });
       } else {
         this.days_array.push(currentDay);
@@ -126,7 +126,7 @@ export class ViewDoctorDetailsComponent implements OnInit {
           day: currentDay.getDay(),
           fullDate: `${currentDay.getFullYear()}-${
             (currentDay.getMonth() + 1 < 10 ? '0' + (currentDay.getMonth() + 1) : (currentDay.getMonth() +1))
-          }-${currentDay.getDate() < 10 ? '0'+ currentDay.getDate() : currentDay.getDate()}}`,
+          }-${currentDay.getDate() < 10 ? '0'+ currentDay.getDate() : currentDay.getDate()}`,
         });
       }
       this.days_array_obj.sort(function (a: any, b: any) {
@@ -138,6 +138,7 @@ export class ViewDoctorDetailsComponent implements OnInit {
   }
   getSlot(x: {}){
     console.log(x)
+    localStorage.setItem('appointmentDetails', JSON.stringify(x))
     this.router.navigateByUrl('/patient/set-appointment', {state: x} )
     // this.router.navigateByUrl('/dashboard', { state: this.user });
   }

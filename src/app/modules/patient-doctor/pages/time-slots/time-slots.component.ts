@@ -27,36 +27,46 @@ export class TimeSlotsComponent implements OnInit {
     this.setAppointmentYear(this.selectedYear)
   }
   getTimeSlot(){
-    console.log(history.state)
-    this.selectedYear = history.state.fullDate.split('-')[0]
-    this.selectedMonth = history.state.fullDate.split('-')[1];
+    console.log(JSON.parse(localStorage.getItem('appointmentDetails') || '{}').fullDate.split('-')[0])
+    this.selectedYear = history.state.fullDate !== undefined ? history.state?.fullDate.split('-')[0] :  JSON.parse(localStorage.getItem('appointmentDetails') || '{}').fullDate.split('-')[0]
+    this.selectedMonth = history.state.fullDate !== undefined? history.state?.fullDate.split('-')[1] : JSON.parse(localStorage.getItem('appointmentDetails') || '{}').fullDate.split('-')[1];
     this.doctor = JSON.parse(localStorage.getItem('doctor') || '{}');
     // history.s
+    console.log(this.selectedMonth)
   }
 
 
   setAppointmentYear(year: any) {
     this.selectedYear = year
+    console.log(this.selectedYear, "Year", this.selectedMonth, "Months")
     this.doctorService
       .getAppointment(this.selectedMonth, this.selectedYear, this.doctor._id)
       .subscribe({
         next: (appo) => {
-          console.log(appo);
+          console.log("Hello ", appo);
           this.doctAppointmentSchedule = appo;
-          this.appointmentDays = this.doctAppointmentSchedule.map((x: any) => {
-            //Get day of appointment and put it in a new array
-            let newObj = {
-              // date: x.date,
-              date: Number(x.date.split('-')[2]),
-              day: new Date(x.date).getDay(),
-            };
-            return newObj;
-            // return Number(x.date.split('-')[2]); // e.g. date is 2022-05-23 i.e yyyy-mm-dd
-          });
-          this.appointmentDays.sort(function (a: any, b: any) {
-            //Sort array in ascending order
-            return a.day - b.day; // Sort days by ascending number
-          });
+          // this.appointmentDays = this.doctAppointmentSchedule.map((x: any) => {
+          //   //Get day of appointment and put it in a new array
+          //   let newObj = {
+          //     // date: x.date,
+          //     date: Number(x.date.split('-')[2]),
+          //     day: new Date(x.date).getDay(),
+          //   };
+          //   return newObj;
+          //   // return Number(x.date.split('-')[2]); // e.g. date is 2022-05-23 i.e yyyy-mm-dd
+          // });
+          // this.appointmentDays.sort(function (a: any, b: any) {
+          //   //Sort array in ascending order
+          //   return a.day - b.day; // Sort days by ascending number
+          // });
+          this.appointmentDays = this.doctAppointmentSchedule.filter((appointment:any ) => {
+            console.log("App date ", history.state.fullDate, appointment.date)
+            
+            if(appointment.date === history.state.fullDate || appointment.date === JSON.parse(localStorage.getItem('appointmentDetails') || '{}').fullDate){
+              console.log("App date ", appointment.date)
+              return appointment
+            }
+          })
 
           console.log(this.appointmentDays);
         },
