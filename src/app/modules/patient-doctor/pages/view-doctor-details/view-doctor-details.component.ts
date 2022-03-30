@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+
 import { DoctorsService } from 'src/app/services/doctors.service';
 import { StateService } from 'src/app/services/state.service';
 
@@ -10,7 +12,8 @@ import { StateService } from 'src/app/services/state.service';
 export class ViewDoctorDetailsComponent implements OnInit {
   constructor(
     private stateService: StateService,
-    private doctorService: DoctorsService
+    private doctorService: DoctorsService, 
+    private router: Router
   ) {}
   doctor: any;
   selectedMonth: any;
@@ -98,7 +101,7 @@ export class ViewDoctorDetailsComponent implements OnInit {
           date: getPrev.getDate(),
           day: getPrev.getDay(),
           fullDate: `${getPrev.getFullYear()}-${
-            (getPrev.getMonth() + 1 < 10 ? '0' + getPrev.getMonth() : getPrev.getMonth())
+            (getPrev.getMonth() + 1 < 10 ? '0' + (getPrev.getMonth() + 1) : (getPrev.getMonth() + 1))
           }-${getPrev.getDate() < 10 ? '0'+ getPrev.getDate() : getPrev.getDate()}}`, //yy-mm-dd
         });
       } else if (i > currentDay.getDay()) {
@@ -122,7 +125,7 @@ export class ViewDoctorDetailsComponent implements OnInit {
           date: currentDay.getDate(),
           day: currentDay.getDay(),
           fullDate: `${currentDay.getFullYear()}-${
-            (currentDay.getMonth() + 1 < 10 ? '0' + currentDay.getMonth() : currentDay.getMonth())
+            (currentDay.getMonth() + 1 < 10 ? '0' + (currentDay.getMonth() + 1) : (currentDay.getMonth() +1))
           }-${currentDay.getDate() < 10 ? '0'+ currentDay.getDate() : currentDay.getDate()}}`,
         });
       }
@@ -132,5 +135,10 @@ export class ViewDoctorDetailsComponent implements OnInit {
       });
     }
     console.log(this.days_array_obj);
+  }
+  getSlot(x: {}){
+    console.log(x)
+    this.router.navigateByUrl('/patient/set-appointment', {state: x} )
+    // this.router.navigateByUrl('/dashboard', { state: this.user });
   }
 }

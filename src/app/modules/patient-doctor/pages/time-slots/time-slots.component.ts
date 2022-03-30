@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { DoctorsService } from 'src/app/services/doctors.service';
+import { StateService } from 'src/app/services/state.service';
 
 @Component({
   selector: 'app-time-slots',
@@ -7,9 +10,57 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimeSlotsComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private stateService: StateService,
+    private doctorService: DoctorsService, private router: Router) {
+    console.log(this.router.getCurrentNavigation()?.extras.state);
+   }
+   doctor: any;
+   selectedMonth: any;
+   selectedYear: any;
+   doctAppointmentSchedule: any;
+   appointmentDays: any;
+   days_of_week: any[] = ['sun', 'mon', 'tue', 'wed', 'thur', 'fri', 'sat'];
+   days_array: any[] = [];
   ngOnInit(): void {
+    // console.log(this.router.getCurrentNavigation());
+    this.getTimeSlot()
+    this.setAppointmentYear(this.selectedYear)
+  }
+  getTimeSlot(){
+    console.log(history.state)
+    this.selectedYear = history.state.fullDate.split('-')[0]
+    this.selectedMonth = history.state.fullDate.split('-')[1];
+    this.doctor = JSON.parse(localStorage.getItem('doctor') || '{}');
+    // history.s
   }
 
+
+  setAppointmentYear(year: any) {
+    this.selectedYear = year
+    this.doctorService
+      .getAppointment(this.selectedMonth, this.selectedYear, this.doctor._id)
+      .subscribe({
+        next: (appo) => {
+          console.log(appo);
+          this.doctAppointmentSchedule = appo;
+          this.appointmentDays = this.doctAppointmentSchedule.map((x: any) => {
+            //Get day of appointment and put it in a new array
+            let newObj = {
+              // date: x.date,
+              date: Number(x.date.split('-')[2]),
+              day: new Date(x.date).getDay(),
+            };
+            return newObj;
+            // return Number(x.date.split('-')[2]); // e.g. date is 2022-05-23 i.e yyyy-mm-dd
+          });
+          this.appointmentDays.sort(function (a: any, b: any) {
+            //Sort array in ascending order
+            return a.day - b.day; // Sort days by ascending number
+          });
+
+          console.log(this.appointmentDays);
+        },
+        error: (err) => console.log(err),
+      });
+  }
 }
