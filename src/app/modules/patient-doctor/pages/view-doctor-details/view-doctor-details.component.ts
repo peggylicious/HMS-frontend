@@ -20,6 +20,22 @@ export class ViewDoctorDetailsComponent implements OnInit {
   days_of_week: any[] = ['sun', 'mon', 'tue', 'wed', 'thur', 'fri', 'sat'];
   days_array: any[] = [];
   days_array_obj: any[] = [];
+  mL = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+  appointmentCalendar: any = {};
+  yL = ['2021', '2022'];
   ngOnInit(): void {
     // this.doctor = JSON.parse(localStorage.getItem('doctor'))
     this.getItem();
@@ -64,6 +80,10 @@ export class ViewDoctorDetailsComponent implements OnInit {
   }
 
   getSunday() {
+    // get month
+    this.appointmentCalendar.month = this.mL[new Date().getMonth()];
+    this.appointmentCalendar.year = new Date().getFullYear() + '';
+    console.log(this.appointmentCalendar);
     // let days_of_week = [];
     for (let i = 0; i <= 6; i++) {
       let currentDay = new Date();
@@ -74,22 +94,43 @@ export class ViewDoctorDetailsComponent implements OnInit {
           currentDay.setDate(currentDay.getDate() - (i + 1))
         );
         this.days_array.push(getPrev);
-        this.days_array_obj.push({date: getPrev.getDate(), day: getPrev.getDay()})
+        this.days_array_obj.push({
+          date: getPrev.getDate(),
+          day: getPrev.getDay(),
+          fullDate: `${getPrev.getFullYear()}-${
+            (getPrev.getMonth() + 1 < 10 ? '0' + getPrev.getMonth() : getPrev.getMonth())
+          }-${getPrev.getDate() < 10 ? '0'+ getPrev.getDate() : getPrev.getDate()}}`, //yy-mm-dd
+        });
       } else if (i > currentDay.getDay()) {
         let getNext = new Date(
           currentDay.setDate(currentDay.getDate() + (i - currentDay.getDay()))
         );
         this.days_array.push(getNext);
-        this.days_array_obj.push({date: getNext.getDate(), day: getNext.getDay()})
+        this.days_array_obj.push({
+          date: getNext.getDate(),
+          day: getNext.getDay(),
+          fullDate: `${getNext.getFullYear()}-${
+            getNext.getMonth() + 1 < 10
+              ? '0' + (getNext.getMonth() + 1)
+              : getNext.getMonth() + 1
+          }-${getNext.getDate() < 10 ? '0'+ getNext.getDate() : getNext.getDate()}}`,
+        });
       } else {
         this.days_array.push(currentDay);
         // this.days_array_obj.push({date: currentDay.getDate(), day: this.days_of_week[currentDay.getDay()]})
-        this.days_array_obj.push({date: currentDay.getDate(), day: currentDay.getDay()})
+        this.days_array_obj.push({
+          date: currentDay.getDate(),
+          day: currentDay.getDay(),
+          fullDate: `${currentDay.getFullYear()}-${
+            (currentDay.getMonth() + 1 < 10 ? '0' + currentDay.getMonth() : currentDay.getMonth())
+          }-${currentDay.getDate() < 10 ? '0'+ currentDay.getDate() : currentDay.getDate()}}`,
+        });
       }
       this.days_array_obj.sort(function (a: any, b: any) {
         //Sort array in ascending order
         return a.day - b.day; // Sort days by ascending number
       });
     }
+    console.log(this.days_array_obj);
   }
 }
