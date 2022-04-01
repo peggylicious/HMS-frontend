@@ -7,12 +7,14 @@ import { ViewDoctorDetailsComponent } from './pages/view-doctor-details/view-doc
 import { CoreModule } from 'src/app/core/core.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { TimeSlotsComponent } from './pages/time-slots/time-slots.component';
+import { PatientDetailsComponent } from './components/patient-details/patient-details.component';
 
 @NgModule({
   declarations: [
     PatientDoctorComponent,
     ViewDoctorDetailsComponent,
     TimeSlotsComponent,
+    PatientDetailsComponent,
   ],
   imports: [
     CommonModule,
