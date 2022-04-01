@@ -8,12 +8,11 @@ import { CoreModule } from 'src/app/core/core.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { TimeSlotsComponent } from './pages/time-slots/time-slots.component';
 
-
 @NgModule({
   declarations: [
     PatientDoctorComponent,
     ViewDoctorDetailsComponent,
-    TimeSlotsComponent
+    TimeSlotsComponent,
   ],
   imports: [
     CommonModule,
