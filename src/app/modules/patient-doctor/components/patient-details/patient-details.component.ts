@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl, Form } from '@angular/forms';
 
 @Component({
   selector: 'app-patient-details',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor( private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
+  patientDetails = this.fb.group({
+    // firstname: [''],
+    firstname: [''],
+    lastname: [''],
+    email: [''],
+    password: [''],
+    confirmPassword: [''],
+  });
 
+  bookAppointment(){
+    
+  }
 }

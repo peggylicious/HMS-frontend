@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { PatientDoctorRoutingModule } from './patient-doctor-routing.module';
 import { PatientDoctorComponent } from './patient-doctor.component';
 import { ViewDoctorDetailsComponent } from './pages/view-doctor-details/view-doctor-details.component';
@@ -20,7 +20,8 @@ import { PatientDetailsComponent } from './components/patient-details/patient-de
     CommonModule,
     PatientDoctorRoutingModule, 
     CoreModule,
-    SharedModule
+    SharedModule, 
+    ReactiveFormsModule
   ]
 })
 export class PatientDoctorModule { }

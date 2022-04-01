@@ -1,1 +1,9 @@
 <p>patient-details works!</p>
+<div class="patient-details-container">
+    <form action=""  class="login_form" [formGroup]="patientDetails" (ngSubmit)="bookAppointment()">
+        <div>
+            <label for="firstname"><div class="icon"></div><span>Name</span></label>
+            <input type="text" formControlName="firstname" placeholder="Enter first name">
+        </div>
+    </form>
+</div>
