@@ -1,0 +1,100 @@
+@import url(".././../../../../styles.css");
+
+.appointment-time-btn-wrapper {
+  display: flex;
+  margin-top: 21px;
+  margin-bottom: 21px;
+}
+.appointment-time-tab-btn {
+  width: 50%;
+}
+.appointment-time-tab-btn {
+  margin-right: 10px;
+}
+.time-btn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  background: var(--linkText);
+  border-radius: 10px;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 15px;
+  color: var(--white);
+}
+
+.time-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 21px;
+  width: 21px;
+  background: #ffffff;
+  border-radius: 3px;
+  margin-right: 15px;
+}
+
+.time {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  color: var(--mainTextLight);
+  background-color: var(--white);
+  padding: 10px 22px;
+  border-radius: 5px;
+  width: 30%;
+  margin-bottom: 15px;
+}
+.appointment-time-tab {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.fees-info .title {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  color: var(--mainTextLight);
+}
+.paid-service {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-bottom: 15px
+}
+.paid-service .icon {
+  width: 33px;
+  height: 33px;
+  background: #efefef;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.paid-service h4,
+.paid-service .price {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 15px;
+}
+.paid-service .info{
+  margin-left: 10px;
+  margin-right: auto;
+}
+.info > p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--mainTextLight);
+}

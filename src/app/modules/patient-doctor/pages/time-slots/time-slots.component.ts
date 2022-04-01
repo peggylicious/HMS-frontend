@@ -73,4 +73,7 @@ export class TimeSlotsComponent implements OnInit {
         error: (err) => console.log(err),
       });
   }
+  chooseAppointmentTime(){
+    console.log("Time")
+  }
 }
