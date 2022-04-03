@@ -9,7 +9,9 @@ import { FormBuilder, FormGroup, FormControl, Form } from '@angular/forms';
 export class PatientDetailsComponent implements OnInit {
 
   constructor( private fb: FormBuilder) { }
-  // selectFemale: Boolean = false;
+  selectFemale: Boolean = false;
+  selectMale: Boolean = false;
+
   patientDetails = this.fb.group({
     // firstname: [''],
     firstname: [''],
@@ -32,7 +34,11 @@ export class PatientDetailsComponent implements OnInit {
   checkBox(e: any){
     console.log(e.target.value)
     if (e.target.value === "female") {
-      // this.selectFemale = true
+      this.selectFemale = true;
+      this.selectMale = false
+    }else{
+      this.selectFemale = false;
+      this.selectMale = true
     }
   }
 }

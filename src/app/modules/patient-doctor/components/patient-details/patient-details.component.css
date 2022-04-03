@@ -48,21 +48,51 @@
   margin-right: 7px;
   background: transparent;
 }
-.gender-wrapper{
-    display: flex;
+.gender-wrapper {
+  display: flex;
 }
-.hms-f-group .gender-wrapper input[type="button"]{
-    width: 15px;
-    height: 15px;
-    border-radius: 100%;
-    padding: 0;
+.hms-checkbox-wrapper {
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  padding: 0;
+  position: relative;
 }
-.hms-f-checkbox{
+.gender-wrapper .hms-checkbox-wrapper input[type="button"] {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  padding: 0;
+  background: var(--mainTextLight);
+  color: transparent;
+}
+.hms-f-checkbox {
   display: flex;
   margin-right: 20px;
   align-items: center;
 }
-.hms-f-checkbox label{
+.hms-f-checkbox label {
   margin-bottom: 0;
   margin-left: 10px;
+  width: initial;
+}
+.hms-checkbox-wrapper svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.svg {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.hma-f-group.problem label{
+  margin-left: 0;
+}
+textarea {
+  width: 100%;
+  border: 1px solid rgba(140, 143, 165, 0.5);
+  box-sizing: border-box;
+  border-radius: 10px;
 }
