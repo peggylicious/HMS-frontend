@@ -1,5 +1,8 @@
 @import url(".././../../../../styles.css");
 
+.time-slot-container{
+  padding: 45px 30px;
+}
 .appointment-time-btn-wrapper {
   display: flex;
   margin-top: 21px;
