@@ -87,7 +87,7 @@
   top: 0;
   left: 0;
 }
-.hms-f-group.problem label{
+.hms-f-group.problem label span{
   margin-left: 0;
 }
 textarea {
