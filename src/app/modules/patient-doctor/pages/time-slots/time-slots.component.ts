@@ -17,10 +17,27 @@ export class TimeSlotsComponent implements OnInit {
    doctor: any;
    selectedMonth: any;
    selectedYear: any;
+   selectedDay: any;
+   selectedDate: any;
+   computeDate: string;
    doctAppointmentSchedule: any;
    appointmentDays: any;
    days_of_week: any[] = ['sun', 'mon', 'tue', 'wed', 'thur', 'fri', 'sat'];
    days_array: any[] = [];
+   mL = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
   ngOnInit(): void {
     // console.log(this.router.getCurrentNavigation());
     this.getTimeSlot()
@@ -30,9 +47,14 @@ export class TimeSlotsComponent implements OnInit {
     console.log(JSON.parse(localStorage.getItem('appointmentDetails') || '{}').fullDate.split('-')[0])
     this.selectedYear = history.state.fullDate !== undefined ? history.state?.fullDate.split('-')[0] :  JSON.parse(localStorage.getItem('appointmentDetails') || '{}').fullDate.split('-')[0]
     this.selectedMonth = history.state.fullDate !== undefined? history.state?.fullDate.split('-')[1] : JSON.parse(localStorage.getItem('appointmentDetails') || '{}').fullDate.split('-')[1];
+    this.selectedDay = history.state.fullDate !== undefined? history.state?.fullDate.split('-')[2] : JSON.parse(localStorage.getItem('appointmentDetails') || '{}').fullDate.split('-')[2];
     this.doctor = JSON.parse(localStorage.getItem('doctor') || '{}');
     // history.s
     console.log(this.selectedMonth)
+    // this.selectedDate = new Date(`${this.selectedYear}-${this.selectedMonth}-`)
+    this.selectedDate = history.state.fullDate || JSON.parse(localStorage.getItem('appointmentDetails') || '{}').fullDate
+    this.computeDate = `${this.days_of_week[new Date(this.selectedDate).getDay()]} ${this.selectedDay}, ${this.mL[new Date(this.selectedDate).getMonth()]}`
+    
   }
 
 
