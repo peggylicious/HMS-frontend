@@ -9,9 +9,7 @@ import { FormBuilder, FormGroup, FormControl, Form } from '@angular/forms';
 export class PatientDetailsComponent implements OnInit {
 
   constructor( private fb: FormBuilder) { }
-
-  ngOnInit(): void {
-  }
+  // selectFemale: Boolean = false;
   patientDetails = this.fb.group({
     // firstname: [''],
     firstname: [''],
@@ -19,9 +17,22 @@ export class PatientDetailsComponent implements OnInit {
     email: [''],
     password: [''],
     confirmPassword: [''],
+    gender: [''], 
+    age: [''], 
+    genderfemale: [''],
+    phone: ['']
   });
+  ngOnInit(): void {
+  }
+
 
   bookAppointment(){
     
+  }
+  checkBox(e: any){
+    console.log(e.target.value)
+    if (e.target.value === "female") {
+      // this.selectFemale = true
+    }
   }
 }

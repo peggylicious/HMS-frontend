@@ -1,0 +1,68 @@
+@import url(".././../../../../styles.css");
+
+.hms-f-group {
+  margin-bottom: 28px;
+}
+.hms-f-group label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 15px;
+}
+.hms-f-group input {
+  width: 100%;
+  border: none;
+  /* background: transparent; */
+}
+.hms-f-group input[type="text"] {
+  border-bottom: 1px solid var(--mainTextLight);
+}
+.hms-f-group input[type="button"] {
+  background: var(--linkText);
+  width: auto;
+  padding: 16px 15px;
+  border-radius: 10px;
+  color: var(--white);
+}
+.hms-f-group label span {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+  color: var(--mainTextLight);
+  margin-left: 10px;
+}
+.f-group-age-btn-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.tel-phone-wrapper {
+  display: flex;
+  align-items: centers;
+}
+.tel-phone-wrapper select {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #8c8fa5;
+  border: none;
+  margin-right: 7px;
+  background: transparent;
+}
+.gender-wrapper{
+    display: flex;
+}
+.hms-f-group .gender-wrapper input[type="button"]{
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    padding: 0;
+}
+.hms-f-checkbox{
+  display: flex;
+  margin-right: 20px;
+  align-items: center;
+}
+.hms-f-checkbox label{
+  margin-bottom: 0;
+  margin-left: 10px;
+}
