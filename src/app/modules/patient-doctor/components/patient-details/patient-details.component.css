@@ -3,6 +3,9 @@
 .hms-f-group {
   margin-bottom: 28px;
 }
+.hms-f-group  input, .hms-f-group textarea{
+  background: transparent;
+}
 .hms-f-group label {
   display: flex;
   align-items: center;
@@ -14,7 +17,7 @@
   border: none;
   /* background: transparent; */
 }
-.hms-f-group input[type="text"] {
+.hms-f-group input[type="text"], .hms-f-group.tel {
   border-bottom: 1px solid var(--mainTextLight);
 }
 .hms-f-group input[type="button"] {
