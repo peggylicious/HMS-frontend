@@ -1,5 +1,7 @@
 @import url(".././../../../../styles.css");
-
+.patient-details-container{
+  padding: 45px 30px;
+}
 .hms-f-group {
   margin-bottom: 28px;
 }
