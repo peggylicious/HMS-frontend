@@ -8,6 +8,6 @@ export class PatientService {
   searchDoctor(data: any) {
     let params = new HttpParams().set("firstname",data.firstname)
     // params.append('firstname', data);
-    return this.http.get('http://localhost:3000/doctors/doctor', {params: params});
+    return this.http.get('https://peggy-hms-api.herokuapp.com/doctors/doctor', {params: params});
   }
 }
