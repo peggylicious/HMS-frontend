@@ -98,4 +98,7 @@ export class TimeSlotsComponent implements OnInit {
   chooseAppointmentTime(){
     console.log("Time")
   }
+  checkMorningEvening(ampm:any){
+    ampm >= 12 ? "PM" : "AM"
+  }
 }

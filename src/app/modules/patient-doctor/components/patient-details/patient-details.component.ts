@@ -41,4 +41,7 @@ export class PatientDetailsComponent implements OnInit {
       this.selectMale = true
     }
   }
+  bookAppointmentTime(){
+    
+  }
 }
