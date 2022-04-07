@@ -8,6 +8,9 @@
 // app.listen(process.env.PORT || 8080);
 
 // Redirect all traffic from http to https.
+const express = require('express');
+const app = express();
+// const app = express();
 function requireHTTPS(req, res, next) {
     // The 'x-forwarded-proto' check is for Heroku
     if (!req.secure && req.get('x-forwarded-proto') !== 'https') {
@@ -15,10 +18,8 @@ function requireHTTPS(req, res, next) {
     }
     next();
 }
-const express = require('express');
-const app = express();
-// const app = express();
 app.use(requireHTTPS);
+
 
 // 2. Serve our static files.
 app.use(express.static('./dist/hms-frontend'));
