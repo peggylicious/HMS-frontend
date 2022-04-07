@@ -8,6 +8,7 @@ import { CoreModule } from 'src/app/core/core.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { TimeSlotsComponent } from './pages/time-slots/time-slots.component';
 import { PatientDetailsComponent } from './components/patient-details/patient-details.component';
+import { AppointmentsComponent } from './components/appointments/appointments.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { PatientDetailsComponent } from './components/patient-details/patient-de
     ViewDoctorDetailsComponent,
     TimeSlotsComponent,
     PatientDetailsComponent,
+    AppointmentsComponent,
   ],
   imports: [
     CommonModule,
