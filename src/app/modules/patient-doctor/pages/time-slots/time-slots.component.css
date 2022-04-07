@@ -56,10 +56,12 @@
   border-radius: 5px;
   width: 30%;
   margin-bottom: 15px;
+  width: calc(33% - 2em);
+  margin-right: 1em;
 }
 .appointment-time-tab {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
@@ -107,3 +109,8 @@
   line-height: 14px;
   color: var(--mainTextLight);
 }
+/* .avail-time:last-child:nth-child(odd){
+  background-color: red;
+  margin-left: 10px;
+  margin-right: auto;
+} */

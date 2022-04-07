@@ -7,7 +7,7 @@
   <div class="appointment-time-wrapper">
     <div class="appointment-time-btn-wrapper">
       <div class="appointment-time-tab-btn appointment-time-tab-btn-1">
-        <button class="time-btn star-btn">
+        <button class="time-btn star-btn" (click)="checkMorningEvening('morning')">
           <span class="time-icon star">
             <svg
               width="16"
@@ -25,7 +25,7 @@
         </button>
       </div>
       <div class="appointment-time-tab-btn appointment-time-tab-btn-2">
-        <button class="time-btn">
+        <button class="time-btn" (click)="checkMorningEvening('evening')">
           <span class="time-icon moon">
             <svg
               width="13"
@@ -44,11 +44,11 @@
       </div>
     </div>
     <div class="appointment-time-tab appointment-time-tab-1 morning-time">
-      <button class="time">9:30</button>
-      <button class="time">11:00</button>
+      <button class="time avail-time" *ngFor="let time of newTimeArray">{{ time }}</button>
+      <!-- <button class="time">11:00</button>
       <button class="time">12:30</button>
       <button class="time">3:00</button>
-      <button class="time">5:00</button>
+      <button class="time">5:00</button> -->
     </div>
     <div class="appointment-time-tab appointment-time-tab-2 evening-time"></div>
   </div>
