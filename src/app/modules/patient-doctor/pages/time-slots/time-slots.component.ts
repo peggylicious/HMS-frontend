@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DoctorsService } from 'src/app/services/doctors.service';
 import { StateService } from 'src/app/services/state.service';
@@ -16,6 +16,8 @@ export class TimeSlotsComponent implements OnInit {
   ) {
     console.log(this.router.getCurrentNavigation()?.extras.state);
   }
+  @Output() showPatientDetails = new EventEmitter();
+
   doctor: any;
   selectedMonth: any;
   selectedYear: any;
@@ -133,6 +135,8 @@ export class TimeSlotsComponent implements OnInit {
       });
   }
   chooseAppointmentTime() {
+    console.log(this.showPatientDetails)
+    this.showPatientDetails.emit(false)
     console.log('Time');
   }
   checkMorningEvening(ampm: string) {

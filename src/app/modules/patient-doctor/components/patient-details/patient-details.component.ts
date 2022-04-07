@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Form } from '@angular/forms';
 
 @Component({
@@ -11,7 +11,7 @@ export class PatientDetailsComponent implements OnInit {
   constructor( private fb: FormBuilder) { }
   selectFemale: Boolean = false;
   selectMale: Boolean = false;
-
+  @Output() openBookAppointment = new EventEmitter();
   patientDetails = this.fb.group({
     // firstname: [''],
     firstname: [''],
@@ -42,6 +42,10 @@ export class PatientDetailsComponent implements OnInit {
     }
   }
   bookAppointmentTime(){
-    
+    console.log("Hello")
+  }
+  goToTimeSlot(){
+    this.openBookAppointment.emit(true)
+
   }
 }

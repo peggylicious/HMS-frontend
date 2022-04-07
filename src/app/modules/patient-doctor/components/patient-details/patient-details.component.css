@@ -102,3 +102,7 @@ textarea {
   border-radius: 10px;
   padding: 19px 13px;
 }
+.hms-btn-double{
+  display: flex;
+  justify-content: space-between;
+}

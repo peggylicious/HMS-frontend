@@ -1,1 +1,6 @@
 <p>appointments works!</p>
+<app-patient-details
+  (openBookAppointment)="bookAppointment($event)"
+  *ngIf="!show"
+></app-patient-details>
+<app-time-slots *ngIf="show" (showPatientDetails)="bookAppointment($event)"></app-time-slots>
