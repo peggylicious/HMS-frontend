@@ -20,6 +20,7 @@ export class ViewDoctorDetailsComponent implements OnInit {
   selectedYear: any;
   doctAppointmentSchedule: any;
   appointmentDays: any;
+  day:any = "";
   days_of_week: any[] = ['sun', 'mon', 'tue', 'wed', 'thur', 'fri', 'sat'];
   days_array: any[] = [];
   days_array_obj: any[] = [];
@@ -49,6 +50,7 @@ export class ViewDoctorDetailsComponent implements OnInit {
   }
   bookAppointment() {
     console.log('book appointment');
+    this.router.navigateByUrl('/patient/set-appointment', {state: this.day} )
   }
   setApppointmentMonth(month: any) {
     this.selectedMonth = month.value;
@@ -139,7 +141,8 @@ export class ViewDoctorDetailsComponent implements OnInit {
   getSlot(x: {}){
     console.log(x)
     localStorage.setItem('appointmentDetails', JSON.stringify(x))
-    this.router.navigateByUrl('/patient/set-appointment', {state: x} )
+    this.day = x
+    // this.router.navigateByUrl('/patient/set-appointment', {state: x} )
     // this.router.navigateByUrl('/dashboard', { state: this.user });
   }
 }
