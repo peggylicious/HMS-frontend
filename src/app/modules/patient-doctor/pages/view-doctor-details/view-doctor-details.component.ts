@@ -50,7 +50,7 @@ export class ViewDoctorDetailsComponent implements OnInit {
   }
   bookAppointment() {
     console.log('book appointment');
-    this.router.navigateByUrl('/patient/set-appointment', {state: this.day} )
+    this.router.navigateByUrl('/patient/create-appointment', {state: this.day} )
   }
   setApppointmentMonth(month: any) {
     this.selectedMonth = month.value;
