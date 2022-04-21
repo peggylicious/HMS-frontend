@@ -11,6 +11,7 @@
     height: 106px;
     padding: 20px 10px;
 }
+/* For medium phones */
 @media only screen and (min-width: 392px){
     .categories-card{
         width: 108px;
