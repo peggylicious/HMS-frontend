@@ -18,7 +18,7 @@
   transform: translateY(-51%);
 }
 .home-search-btn{
-  background: var(--primaryDark);
+  background: var(--linkText);
   width: 49px;
   height: 45px;
   border-radius: 10px;

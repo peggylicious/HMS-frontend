@@ -3,7 +3,7 @@
   padding: 20px;
 }
 .home-wrapper {
-  background-color: var(--primaryDark);
+  background-color: var(--linkText);
 }
 .main-area {
   background-color: var(--primaryLightest);

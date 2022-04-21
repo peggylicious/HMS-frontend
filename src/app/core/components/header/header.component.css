@@ -6,7 +6,7 @@
     justify-content: space-between;
     height: 64px;
     width: 100%;
-    background-color: var(--primaryDark);
+    background-color: var(--linkText);
     /* background-color: #555fd2; */
     padding: 12px 16px;
 }

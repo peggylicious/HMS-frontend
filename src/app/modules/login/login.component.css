@@ -13,7 +13,7 @@
   margin-bottom: 71px;
 }
 .form_container {
-  background-color: var(--primaryDark);
+  background-color: var(--linkText);
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -60,7 +60,7 @@
 }
 .field_wrapper button {
   background: #fff;
-  color: var(--primaryDark);
+  color: var(--linkText);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
   border: none;
   border-radius: 4px;
