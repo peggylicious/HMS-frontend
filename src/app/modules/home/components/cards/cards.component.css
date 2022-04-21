@@ -5,7 +5,14 @@
     justify-content: center;
     background-color: var(--white);
     border-radius: 10px;
-    width: 108px;
+    width: 96px;
+    /* min-width: 90px;
+    max-width: 200px; */
     height: 106px;
     padding: 20px 10px;
+}
+@media only screen and (min-width: 392px){
+    .categories-card{
+        width: 108px;
+    }
 }
