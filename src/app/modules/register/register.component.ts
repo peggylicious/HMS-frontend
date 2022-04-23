@@ -25,6 +25,7 @@ export class RegisterComponent implements OnInit {
     firstname: [''],
     lastname: [''],
     email: [''],
+    role:[''],
     password: [''],
     confirmPassword: [''],
   });
@@ -41,6 +42,7 @@ export class RegisterComponent implements OnInit {
 
   signup() {
     let signupPayload = this.registerForm.value;
+    console.log(this.registerForm.value)
     this.spinner.show();
     this.firstNameErrorMsg = {hasFirstname: false, message: ''};
     this.lastNameErrorMsg = {hasLastName: false, message: ''}
@@ -62,6 +64,7 @@ export class RegisterComponent implements OnInit {
           });
         } else {
           this.userExists = true;
+          console.log("My form error ", err)
           this.formError = err.error;
         }
         console.log(this.formErrors);
