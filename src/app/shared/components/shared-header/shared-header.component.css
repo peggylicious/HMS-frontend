@@ -1,0 +1,12 @@
+@import url("../../../../styles.css");
+
+.shared-header{
+    height: 60px;
+    width: 100%;
+    background-color: var(--linkText);
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-left: 32px;
+    padding-right: 32px;
+}
