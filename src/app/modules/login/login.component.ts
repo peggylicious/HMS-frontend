@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginForm.value).subscribe({
       next: (response: any) => {
         console.log(response);
-        localStorage.setItem('token', response.token);
+        localStorage.setItem('access_token', response.token);
         this.spinner.hide();
         this.router.navigate(['/home']);
 

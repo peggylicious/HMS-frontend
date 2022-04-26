@@ -12,6 +12,11 @@ import { CoreModule } from './core/core.module';
 import { TryComponent } from './components/try/try.component';
 import { SharedModule } from './shared/shared.module';
 // import { DoctorViewCardComponent } from './shared/components/doctor-view-card/doctor-view-card.component';
+import { JwtModule } from "@auth0/angular-jwt";
+
+export function tokenGetter() {
+  return localStorage.getItem("access_token");
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +31,14 @@ import { SharedModule } from './shared/shared.module';
     NgxSpinnerModule, 
     BrowserAnimationsModule, 
     CoreModule, 
-    SharedModule
+    SharedModule, 
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ["localhost:3000"],
+        disallowedRoutes: ["http://example.com/examplebadroute/"],
+      },
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent], 

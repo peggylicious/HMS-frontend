@@ -7,10 +7,11 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class AuthService {
   constructor(private http: HttpClient, public jwtHelper: JwtHelperService) {}
-  public isAuthenticated(): boolean {
-    const token:any = localStorage.getItem('token');
+  isAuthenticated(): boolean {
+    const token:any = localStorage.getItem('access_token');
     // Check if token is expired and return
     // true or false
+    console.log("Helper is ", !this.jwtHelper.isTokenExpired(token))
     return !this.jwtHelper.isTokenExpired(token);
   }
   signup(data: any) {
@@ -23,9 +24,9 @@ export class AuthService {
     let token = localStorage.getItem('token');
     const headers = new HttpHeaders({ Authorization: 'Bearer ' + token });
     console.log(data);
-    return this.http.post('http://localhost:3000/user/patient/login', data, {
-      headers: { Authorization: 'Bearer ' + token },
-    });
+    console.log(!this.jwtHelper.decodeToken());
+
+    return this.http.post('http://localhost:3000/user/patient/login', data);
     // return this.http.post('https://peggy-hms-api.herokuapp.com/user/patient/login', data)
   }
 }
