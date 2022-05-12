@@ -44,7 +44,7 @@
       </div>
     </div>
     <div class="appointment-time-tab appointment-time-tab-1 morning-time">
-      <button class="time avail-time" *ngFor="let time of newTimeArray">{{ time }}</button>
+      <button class="time avail-time" *ngFor="let time of newTimeArray" (click)="selectAppointmentTime(time)">{{ time }}</button>
       <!-- <button class="time">11:00</button>
       <button class="time">12:30</button>
       <button class="time">3:00</button>

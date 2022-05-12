@@ -40,6 +40,9 @@ export class ViewDoctorDetailsComponent implements OnInit {
   ];
   appointmentCalendar: any = {};
   yL = ['2021', '2022'];
+  hasSelectedDay:boolean = false ;
+
+
   ngOnInit(): void {
     // this.doctor = JSON.parse(localStorage.getItem('doctor'))
     this.getItem();
@@ -139,9 +142,12 @@ export class ViewDoctorDetailsComponent implements OnInit {
     console.log(this.days_array_obj);
   }
   getSlot(x: {}){
-    console.log(x)
+    console.log("My ", x)
     localStorage.setItem('appointmentDetails', JSON.stringify(x))
     this.day = x
+    this.hasSelectedDay = true
+    console.log(this.hasSelectedDay)
+
     // this.router.navigateByUrl('/patient/set-appointment', {state: x} )
     // this.router.navigateByUrl('/dashboard', { state: this.user });
   }

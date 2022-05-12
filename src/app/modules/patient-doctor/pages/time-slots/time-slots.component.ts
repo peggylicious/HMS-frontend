@@ -158,4 +158,7 @@ export class TimeSlotsComponent implements OnInit {
     // let time_of_day = timeStr >= 12 ? "PM" : "AM"
     // console.log(ampm + time_of_day)
   }
+  selectAppointmentTime(time:String){
+
+  }
 }

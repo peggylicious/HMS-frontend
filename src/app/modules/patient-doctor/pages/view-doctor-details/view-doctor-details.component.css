@@ -104,6 +104,9 @@ border-radius: 10px; */
   background: var(--linkText);
   border-radius: 10px;
 }
+.book-app .book-btn:disabled{
+  opacity: 0.8;
+}
 select.hms-title-sm {
   border: none;
   outline: none;
