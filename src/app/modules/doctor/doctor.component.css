@@ -1,0 +1,13 @@
+@import "../../../styles.css";
+
+@import "../../../auth.css";
+small{
+    display: block;
+    position: absolute;
+    bottom: -13px;
+    color: #fff;
+    font-size: 10px;
+}
+.hms_flex{
+    background-color: red;
+}

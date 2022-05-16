@@ -11,8 +11,11 @@ export class DoctorsService {
     // console.log(data)
     return this.http.get('http://localhost:3000/doctors/all')
   }
-  getAppointment(month:string, year:string, id:string){
-    return this.http.get(`https://peggy-hms-api.herokuapp.com/doctors/my-appointment/${id}/?year=${year}&month=${month}`)
+  getMonthlyAppointment(month:any, year:any, id:string){
+    return this.http.get<any[]>(`https://peggy-hms-api.herokuapp.com/doctors/my-appointment/${id}/?year=${year}&month=${month}`)
+  }
+  setAppointment(appointment:any){
+    return this.http.post('http://localhost:3000/doctors/appointment', appointment)
   }
 
 }

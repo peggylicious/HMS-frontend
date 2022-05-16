@@ -64,10 +64,10 @@
                 </div>
             </div> -->
             <div class="calendar-wrapper">
-                <div class="calendar" *ngFor="let day of days_array_obj" (click)="getSlot(day)">
+                <button class="calendar" *ngFor="let day of days_array_obj" (click)="getSlot(day)" [disabled]="!appointmentForTheYear.includes(day.fullDate)">
                     <p>{{ days_of_week[day.day] }}</p>
                     <p> {{ day.date }}</p>
-                </div>
+                </button>
             </div>
             <div class="action-btns">
                 <div class="fave">

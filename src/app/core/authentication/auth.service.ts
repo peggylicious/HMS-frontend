@@ -16,7 +16,7 @@ export class AuthService {
   }
   signup(data: any) {
     console.log(data);
-    return this.http.post('http://localhost:3000/user/patient/signup', data);
+    return this.http.post('http://localhost:3000/user/signup', data);
     // return this.http.post('https://peggy-hms-api.herokuapp.com/user/patient/signup', data)
   }
 
@@ -26,7 +26,7 @@ export class AuthService {
     console.log(data);
     console.log(!this.jwtHelper.decodeToken());
 
-    return this.http.post('http://localhost:3000/user/patient/login', data);
+    return this.http.post('http://localhost:3000/user/login', data);
     // return this.http.post('https://peggy-hms-api.herokuapp.com/user/patient/login', data)
   }
 }

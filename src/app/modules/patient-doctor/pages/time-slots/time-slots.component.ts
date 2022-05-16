@@ -14,7 +14,7 @@ export class TimeSlotsComponent implements OnInit {
     private doctorService: DoctorsService,
     private router: Router
   ) {
-    console.log(this.router.getCurrentNavigation()?.extras.state);
+    // console.log(this.router.getCurrentNavigation()?.extras.state);
   }
   @Output() showPatientDetails = new EventEmitter();
 
@@ -42,13 +42,16 @@ export class TimeSlotsComponent implements OnInit {
     'November',
     'December',
   ];
-  timeArray = ['9:30', '11:30', '12:30', '15:00', '17:00'];
+  timeArray:any[];
   newTimeArray: String[] = []
   ngOnInit(): void {
     // console.log(this.router.getCurrentNavigation());
-    this.checkMorningEvening('morning')
+    // this.checkMorningEvening('morning')
     this.getTimeSlot();
     this.setAppointmentYear(this.selectedYear);
+    this.getAppointmentForTheDay(this.selectedDate)
+    // this.checkMorningEvening('morning')
+
   }
   getTimeSlot() {
     console.log(
@@ -88,9 +91,9 @@ export class TimeSlotsComponent implements OnInit {
 
   setAppointmentYear(year: any) {
     this.selectedYear = year;
-    console.log(this.selectedYear, 'Year', this.selectedMonth, 'Months');
+    console.log(this.selectedYear, 'Year', this.selectedMonth, 'Months', this.doctor._id );
     this.doctorService
-      .getAppointment(this.selectedMonth, this.selectedYear, this.doctor._id)
+      .getMonthlyAppointment(this.selectedMonth, this.selectedYear, this.doctor._id)
       .subscribe({
         next: (appo) => {
           console.log('Hello ', appo);
@@ -116,7 +119,7 @@ export class TimeSlotsComponent implements OnInit {
                 history.state.fullDate,
                 appointment.date
               );
-
+              // if()
               if (
                 appointment.date === history.state.fullDate ||
                 appointment.date ===
@@ -124,6 +127,9 @@ export class TimeSlotsComponent implements OnInit {
                     .fullDate
               ) {
                 console.log('App date ', appointment.date);
+                this.timeArray = appointment.time
+                console.log("Time arr ", this.timeArray )
+                this.checkMorningEvening('morning')
                 return appointment;
               }
             }
@@ -140,6 +146,7 @@ export class TimeSlotsComponent implements OnInit {
     console.log('Time');
   }
   checkMorningEvening(ampm: string) {
+    console.log(this.timeArray)
     if (ampm === 'morning') {
       this.newTimeArray = this.timeArray.filter((time) => {
         let timeStr = Number(time.split(':')[0])
@@ -159,6 +166,9 @@ export class TimeSlotsComponent implements OnInit {
     // console.log(ampm + time_of_day)
   }
   selectAppointmentTime(time:String){
+
+  }
+  getAppointmentForTheDay(x:any){
 
   }
 }

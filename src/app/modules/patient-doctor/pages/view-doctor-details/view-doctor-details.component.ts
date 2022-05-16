@@ -41,12 +41,14 @@ export class ViewDoctorDetailsComponent implements OnInit {
   appointmentCalendar: any = {};
   yL = ['2021', '2022'];
   hasSelectedDay:boolean = false ;
-
-
+  currentMonth = new Date().getMonth() + 1
+  currentYear = new Date().getFullYear()
+  appointmentForTheYear:any [] = [];
   ngOnInit(): void {
     // this.doctor = JSON.parse(localStorage.getItem('doctor'))
     this.getItem();
     this.getSunday();
+    this.getMonthlyAppointment()
   }
   getItem() {
     this.doctor = JSON.parse(localStorage.getItem('doctor') || '{}');
@@ -61,7 +63,7 @@ export class ViewDoctorDetailsComponent implements OnInit {
   setAppointmentYear(year: any) {
     this.selectedYear = year.value;
     this.doctorService
-      .getAppointment(this.selectedMonth, this.selectedYear, this.doctor._id)
+      .getMonthlyAppointment(this.selectedMonth, this.selectedYear, this.doctor._id)
       .subscribe({
         next: (appo) => {
           console.log(appo);
@@ -150,5 +152,20 @@ export class ViewDoctorDetailsComponent implements OnInit {
 
     // this.router.navigateByUrl('/patient/set-appointment', {state: x} )
     // this.router.navigateByUrl('/dashboard', { state: this.user });
+  }
+  getMonthlyAppointment(){
+    this.doctorService.getMonthlyAppointment('05', this.currentYear, this.doctor._id).subscribe({
+      next: (result)=>{
+        console.log(result)
+        result.forEach(x =>{
+          console.log(x.date)
+          if(x.date.includes('05')) {this.appointmentForTheYear.push(x.date)}
+        })
+        console.log(this.appointmentForTheYear)
+      }, 
+      error: ()=>{
+
+      }
+    })
   }
 }
