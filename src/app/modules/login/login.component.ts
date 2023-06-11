@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
       next: (response: any) => {
         console.log(response);
         localStorage.setItem('access_token', response.token);
+        localStorage.setItem('user_id', response.loggedUserId);
         this.spinner.hide();
         this.router.navigate(['/home']);
 

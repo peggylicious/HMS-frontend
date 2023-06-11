@@ -53,6 +53,7 @@
         placeholder="Enter first name"
         id="age"
         value="20+"
+        (click)="addAge('20')"
       />
       <input
         type="button"
@@ -167,7 +168,7 @@
     </div>
     <div class="hms-btn-double">
       <app-hms-button [buttonText]="'Back'" (clickedHmsBtn)="goToTimeSlot()"></app-hms-button>
-      <app-hms-button [buttonText]="'Continue'" (clickedHmsBtn)="bookAppointmentTime()"></app-hms-button>
+      <app-hms-button [buttonText]="'Continue'" (clickedHmsBtn)="bookAppointment()"></app-hms-button>
     </div>
   </form>
 </div>
